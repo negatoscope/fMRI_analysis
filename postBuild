@@ -4,7 +4,7 @@ mkdir ${HOME}/spm12 && curl -SL https://github.com/spm/spm12/archive/r7771.tar.g
 mkdir ${HOME}/private && curl -SL https://github.com/negatoscope/private/archive/main.tar.gz | tar -xzC ${HOME}/private --strip-components 1
 
 curl -SL https://raw.githubusercontent.com/spm/spm-docker/master/octave/spm12_r7771.patch | patch -d ${HOME}/spm12 -p3
-curl -O https://gitlab.com/mtmiller/octave-pythonic/-/archive/v0.0.1/octave-pythonic-v0.0.1.tar.gz
+curl -O https://github.com/negatoscope/pythonic/archive/main.tar.gz
 
 cd ${HOME}/spm12/src
 make PLATFORM=octave
@@ -18,8 +18,7 @@ cd ${HOME}
 octave --no-gui --eval "addpath (fullfile (getenv (\"HOME\"), \"scripts\")); savepath ();"
 octave --no-gui --eval "addpath (fullfile (getenv (\"HOME\"), \"dicm2nii\")); savepath ();"
 octave --no-gui --eval "addpath (fullfile (getenv (\"HOME\"), \"spm12\")); savepath ();"
-octave --no-gui --eval "pkg install octave-pythonic-v0.0.1.tar.gz"
-
+octave --no-gui --eval "pkg install pythonic-main.tar.gz";
 
 aws s3 sync --no-sign-request s3://openneuro.org/ds000157 ds000157-download/ --exclude "*" --include "sub-01/*"
 aws s3 sync --no-sign-request s3://openneuro.org/ds000157 ds000157-download/ --exclude "*" --include "sub-02/*"
