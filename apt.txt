@@ -3,4 +3,3 @@ liboctave-dev
 gnuplot
 ghostscript
 awscli
-qtoctave
