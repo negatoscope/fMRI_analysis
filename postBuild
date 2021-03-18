@@ -20,3 +20,6 @@ octave --no-gui --eval "addpath (fullfile (getenv (\"HOME\"), \"spm12\")); savep
 
 aws s3 sync --no-sign-request s3://openneuro.org/ds000157 ds000157-download/ --exclude "*" --include "sub-01/*"
 aws s3 sync --no-sign-request s3://openneuro.org/ds000157 ds000157-download/ --exclude "*" --include "sub-02/*"
+
+curl -O https://gitlab.com/mtmiller/octave-pythonic/-/archive/v0.0.1/octave-pythonic-v0.0.1.tar.gz
+octave --eval "pkg install octave-pythonic-v0.0.1.tar.gz"
