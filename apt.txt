@@ -4,4 +4,3 @@ liboctave-dev
 gnuplot
 ghostscript
 awscli
-fltk
